@@ -21,9 +21,6 @@ abstract class User {
     public int getId() {
         return id;
     }
-    public void setId(int i) {
-      id = i;
-    }
     public String getName() {
         return name;
     }

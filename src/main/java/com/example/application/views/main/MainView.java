@@ -83,7 +83,7 @@ public class MainView extends VerticalLayout {
     removeButtonTeacher.addClickShortcut(Key.ENTER);
 
     removeButtonClass.addClickListener(click -> {
-      school.removeClass(taskFieldClass.getValue());
+      school.removeClassWithName(taskFieldClass.getValue());
       gridClass.getDataProvider().refreshAll();
     });
     removeButtonClass.addClickShortcut(Key.ENTER);

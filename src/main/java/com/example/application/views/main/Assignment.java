@@ -15,7 +15,7 @@ class Assignment {
         pointsEarned = 0;
         pointsPossible = 0;
         graded = false;
-        this.Aclass = Aclass;
+        this.Aclass = AClass;
         this.teacher = teacher;
         this.student = student;
     }
@@ -43,6 +43,24 @@ class Assignment {
     }
     public void setGraded(boolean g) {
       graded = g;
+    }
+    public Class getAclass() {
+        return Aclass;
+    }
+    public void setClass(Class c) {
+        this.Aclass = c;
+    }
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+    public Teacher getTeacher() {
+      return this.teacher;
+    }
+    public void setStudent(Student student) {
+      this.student = student;
+    }
+    public Student getStudent() {
+      return this.student;
     }
     //---end of getters and setters---\\
 

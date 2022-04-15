@@ -18,11 +18,10 @@ Add Student to Class: Bob Ross added to Class: CSCI 3434
 Add Student to Class: Stevie Wonder added to Class: CSCI 3434
 Add Student to Class: Bob Ross added to Class: PHYS 1243
 Remove Student from Class: Stevie Wonder removed from Class: Math 2240
-Create Student: Test added to student list. 
-Create Teacher: Steve Englehart added to teacher list. 
-Create Class: INFO 2223 added to class list. 
-Create Student: Ren added to student list. 
-Create Class: PHYS 1243 added to class list. 
-Create Student: Will Loughlin added to student list. 
-Create Teacher: Steve added to teacher list. 
-Create Student: Stevie added to student list. 
+Create Student: Jane Doe added to student list. 
+Create Class: test added to class list. 
+Create Class: Test Class 2 added to class list. 
+Create Class: Physics added to class list. 
+Add Student to Class: Will Loughlin added to Class: Physics
+Set Teacher to Class: Bingo Bongo set as teacher to Class: Physics
+Add Student to Class: Sophia Chaltas added to Class: Physics

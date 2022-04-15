@@ -20,6 +20,7 @@ class School {
     private int num_ass;
     private Logger logger;
     private ArrayList<String> logger_data;
+    Abstract_Factory assignment_factory;
 
     public School(String name) {
         this.name = name;
@@ -33,6 +34,7 @@ class School {
         num_ass = 0;
         logger = Logger.getInstance();
         logger_data = new ArrayList<String>();
+        assignment_factory = Factory_Provider.getFactory();
         load();
 
     }
@@ -79,25 +81,11 @@ class School {
     }
     public void removeStudent(String n) {
       Student toRemove = getStudentWithName(n);
-      //System.out.println("Student name to remove in School: " + toRemove.getName());
-      students.remove(toRemove);
-      num_students-=1;
-      // for (int i = 0; i < students.size(); i++) {
-      //   System.out.println(students.get(i).getName());
-      // }
-      save();
+      students.remove(n);
     }
     public void removeTeacher(String n) {
       Teacher toRemove = getTeacherWithName(n);
-      teachers.remove(toRemove);
-      num_teachers-=1;
-      save();
-    }
-    public void removeClass(String n) {
-      Class c = getClassWithName(n);
-      classes.remove(c);
-      num_classes-=1;
-      save();
+      teachers.remove(n);
     }
     public void addTeacher(String name) {
       Teacher newTea = new Teacher(num_teachers,name, this);
@@ -143,6 +131,12 @@ class School {
       }
       return null;
     }
+    public void removeClass(Class c) {
+      classes.remove(c);
+    }
+    public void removeClassWithName(String name) {
+      removeClass(getClassWithName(name));
+    }
     public ArrayList<Student> getStudentsInClass(Class c) {
       return c.getStudents();
     }
@@ -173,8 +167,16 @@ class School {
       }
       return null;
     }
+    public void addAssignment(String name,Class c,Teacher teacher,Student student) {
+      Assignment a = assignment_factory.create(num_ass, name, c, teacher, student);
+      num_ass +=1;
+      assignments.add(a);
+      c.addAssignment(a);
+      teacher.addAssignment(a);
+      student.addAssignment(a);
+      save();
+    }
     public void save(){
-      updateIds();
       String users_file_name = "src/main/java/com/example/application/views/main/Users.csv";
       try {
         FileWriter writer = new FileWriter(users_file_name);
@@ -214,6 +216,19 @@ class School {
       catch(IOException e) {
        e.printStackTrace();
       }
+
+      String ass_file_name = "src/main/java/com/example/application/views/main/Assignments.csv";
+      try {
+        FileWriter writer = new FileWriter(ass_file_name);
+        writer.write("name,ass_id,pointsPossible,pointsEarned,graded,class name,teacher name,student name\n");
+        for (int i = 0; i < assignments.size(); i++) {
+          writer.write(assignments.get(i).getName() + "," + assignments.get(i).getId() + "," + assignments.get(i).getPointsPoss() + "," + assignments.get(i).getPointsEarn() + "," + assignments.get(i).getGraded() + "," +  assignments.get(i).getAclass().getName() + "," + assignments.get(i).getTeacher().getName() + "," +  assignments.get(i).getStudent().getName() + "\n");
+        }
+        writer.close();
+      }
+      catch(IOException e) {
+       e.printStackTrace();
+      }
     }
     //https://www.w3schools.com/java/java_files_read.asp
     public void load(){
@@ -246,6 +261,23 @@ class School {
               //addUserFromLoad(split_data[0],split_data[1],split_data[2],split_data[3],split_data[4]);
               //System.out.println(split_data[0] + split_data[1] + split_data[2]+split_data[3]+split_data[4]);
               //System.out.println(data);
+            }
+            reader.close();
+          } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+          }
+      try {
+            File ass_file = new File("src/main/java/com/example/application/views/main/Assignments.csv");
+            Scanner reader = new Scanner(ass_file);
+            int lineCounter = 0;
+            while (reader.hasNextLine()) {
+              lineCounter+=1;
+              data = reader.nextLine();
+              split_data = data.split(",");
+              if (lineCounter != 1) {
+                addAssFromLoad(split_data[0],split_data[1],split_data[2],split_data[3],split_data[4],split_data[5],split_data[6],split_data[7]);
+              }
             }
             reader.close();
           } catch (FileNotFoundException e) {
@@ -297,6 +329,28 @@ class School {
 
     }
 
+    public void addAssFromLoad (String name, String id_str, String pointsPossible_str, String pointsEarned_str, String graded_str, String className, String teacherName, String studentName) {
+      //System.out.println(pointsPossible_str);
+      double pointsPossible = Double.parseDouble(pointsPossible_str);
+      double pointsEarned = Double.parseDouble(pointsEarned_str);
+      boolean graded = Boolean.parseBoolean(graded_str);
+      Teacher t = getTeacherWithName(teacherName);
+      Class c = getClassWithName(className);
+      Student s = getStudentWithName(studentName);
+
+      Assignment a = assignment_factory.create(num_ass, name, c, t, s);
+      num_ass +=1;
+
+      a.setPointsPoss(pointsPossible);
+      a.setPointsEarn(pointsEarned);
+      a.setGraded(graded);
+
+      assignments.add(a);
+      c.addAssignment(a);
+      t.addAssignment(a);
+      s.addAssignment(a);
+    }
+
     public void printInfo() {
       System.out.println("Teachers: ");
       for (int i = 0; i < teachers.size();i++) {
@@ -309,18 +363,6 @@ class School {
       System.out.println("\nClasses: ");
       for (int i = 0; i < classes.size();i++) {
         System.out.println(classes.get(i).getId() + ": " + classes.get(i).getName());
-      }
-    }
-
-    public void updateIds() {
-      for (int i = 0; i < students.size(); i++) {
-        students.get(i).setId(i);
-      }
-      for (int j = 0; j < teachers.size(); j++) {
-        teachers.get(j).setId(j);
-      }
-      for (int c = 0; c < classes.size(); c++) {
-        classes.get(c).setId(c);
       }
     }
 }

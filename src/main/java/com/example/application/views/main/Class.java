@@ -7,19 +7,19 @@ class Class implements Class_Interface{
     private Teacher teacher;
     private ArrayList<Student> students;
     private School school;
+    private ArrayList<Assignment> assignments;
 
     public Class(int id, String name, School school) {
         this.id = id;
         this.name = name;
         students = new ArrayList<Student>();
         this.school = school;
+        assignments = new ArrayList<Assignment>();
+
     }
     //---getters and setters---\\
     public int getId() {
         return id;
-    }
-    public void setId(int i) {
-      id = i;
     }
     public String getName() {
         return name;
@@ -39,5 +39,11 @@ class Class implements Class_Interface{
     }
     public void removeStudent(Student s) {
       students.remove(s);
+    }
+    public void addAssignment(Assignment a) {
+      assignments.add(a);
+    }
+    public ArrayList<Assignment> getAssignments() {
+      return assignments;
     }
 }

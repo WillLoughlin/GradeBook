@@ -2,8 +2,8 @@ name,user_id,username,password,Teacher or Student
 Jed Brown,0,,,Teacher
 Ben Stiller,1,,,Teacher
 Bingo Bongo,2,,,Teacher
-Sophia Chaltas,0,,,Student
-Stevie Wonder,1,,,Student
-Bob Ross,2,,,Student
-Ren,3,,,Student
-Will Loughlin,4,,,Student
+Will Loughlin,0,,,Student
+Sophia Chaltas,1,,,Student
+Stevie Wonder,2,,,Student
+Bob Ross,3,,,Student
+Jane Doe,4,,,Student
