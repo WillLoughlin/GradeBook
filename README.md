@@ -1,6 +1,7 @@
 # GradeBook
 
 This GradeBook project is build using the Vaadin software. The backend code can be found with the path: src/main/java/com/example/application/views/main.
+To run this project enter the command mvnw while in the repository. It can take a minute to load the front end. 
 
 ## Running the application
 
