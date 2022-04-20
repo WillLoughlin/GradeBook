@@ -25,3 +25,7 @@ Create Class: Physics added to class list.
 Add Student to Class: Will Loughlin added to Class: Physics
 Set Teacher to Class: Bingo Bongo set as teacher to Class: Physics
 Add Student to Class: Sophia Chaltas added to Class: Physics
+Create Teacher: Ben_Franklin added to teacher list. 
+Create Teacher: Steve_B added to teacher list. 
+Create Teacher: Mike added to teacher list. 
+Create Student: Bill_Burr added to student list. 

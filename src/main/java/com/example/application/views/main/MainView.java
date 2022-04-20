@@ -11,9 +11,11 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.component.grid.Grid;
 import java.util.ArrayList;
+import com.vaadin.flow.router.HasUrlParameter;
+import com.vaadin.flow.router.BeforeEvent;
 
-@Route("")
-public class MainView extends VerticalLayout {
+@Route("test")
+public class MainView extends VerticalLayout implements HasUrlParameter<String> {
 
   public MainView() {
     VerticalLayout todosList = new VerticalLayout();
@@ -116,5 +118,10 @@ public class MainView extends VerticalLayout {
         gridClass
       )
     );
+  }
+
+  @Override
+  public void setParameter(BeforeEvent event, String parameter) {
+    System.out.println("Hello " + parameter);
   }
 }

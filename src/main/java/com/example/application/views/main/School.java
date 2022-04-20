@@ -123,6 +123,19 @@ class School {
 
       save();
     }
+    public String checkUser(String u, String p) {
+      for (int i = 0; i < students.size(); i++) {
+        if (u.equals(students.get(i).getUsername()) && p.equals(students.get(i).getPassword())) {
+          return "Student";
+        }
+      }
+      for (int i = 0; i < teachers.size(); i++) {
+        if (u.equals(teachers.get(i).getUsername()) && p.equals(teachers.get(i).getPassword())) {
+          return "Teacher";
+        }
+      }
+      return "Invalid";
+    }
     public Class getClassWithName(String n) {
       for (int i = 0; i < classes.size(); i++) {
         if (classes.get(i).getName().equals(n)){
@@ -166,6 +179,28 @@ class School {
         }
       }
       return null;
+    }
+    public Student getStudentWithUsername(String n) {
+      //System.out.println("Looking for student with username " + n);
+      for (int i = 0; i < students.size(); i++) {
+        if (students.get(i).getUsername().equals(n)){
+          return students.get(i);
+        }
+      }
+      return null;
+    }
+    public boolean checkValidRegister(String n) {
+      for (int i = 0; i < students.size(); i++) {
+        if (students.get(i).getUsername().equals(n)){
+          return false;
+        }
+      }
+      for (int i = 0; i < teachers.size(); i++) {
+        if (teachers.get(i).getName().equals(n)){
+          return false;
+        }
+      }
+      return true;
     }
     public void addAssignment(String name,Class c,Teacher teacher,Student student) {
       Assignment a = assignment_factory.create(num_ass, name, c, teacher, student);

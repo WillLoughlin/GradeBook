@@ -1,9 +1,13 @@
 name,user_id,username,password,Teacher or Student
 Jed Brown,0,,,Teacher
-Ben Stiller,1,,,Teacher
+Ben Stiller,1,ben_stiller,password,Teacher
 Bingo Bongo,2,,,Teacher
-Will Loughlin,0,,,Student
+Ben_Franklin,3,,,Teacher
+Steve_B,4,Steve_B,password,Teacher
+Mike,5,Mike,password,Teacher
+Will Loughlin,0,will_loughlin,password,Student
 Sophia Chaltas,1,,,Student
 Stevie Wonder,2,,,Student
 Bob Ross,3,,,Student
 Jane Doe,4,,,Student
+Bill_Burr,5,Bill_Burr,password,Student
