@@ -108,3 +108,8 @@ Add Student to Class: Sophia Chaltas added to Class: CHEM 5012
 Add Student to Class: Will Loughlin added to Class: PHYS 2230
 Add Student to Class: Will Loughlin added to Class: BIO 1111
 Add Student to Class: Will Loughlin added to Class: CHEM 5012
+Add Student to Class: Ben Potts added to Class: BIO 1111
+Add Student to Class: Henry Fontaine added to Class: PHYS 2230
+Add Student to Class: Henry Fontaine added to Class: PHYS 2230
+Add Student to Class: Henry Fontaine added to Class: BIO 1111
+Add Student to Class: Bo Dodge added to Class: BIO 1111

@@ -31,6 +31,14 @@ class Student extends User {
       }
       return 0;
     }
+    public void removeClassAss(Class c) {
+      for (int i = 0; i < assignments.size(); i++) {
+        if (assignments.get(i).getAclass() == c) {
+          assignments.remove(assignments.get(i));
+          i-=1;
+        }
+      }
+    }
     public void setCurrentClass(Class c) {
       this.currentClass = c;
     }

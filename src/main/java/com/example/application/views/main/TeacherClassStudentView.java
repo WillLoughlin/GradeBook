@@ -103,6 +103,7 @@ public class TeacherClassStudentView extends VerticalLayout implements HasUrlPar
     Button cancelButton = new Button("Cancel");
     Button saveButton = new Button("Save");
     saveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+    saveButton.addClickShortcut(Key.ENTER);
     Button deleteButton = new Button("Delete");
     deleteButton.addThemeVariants(ButtonVariant.LUMO_ERROR);
 
@@ -113,12 +114,14 @@ public class TeacherClassStudentView extends VerticalLayout implements HasUrlPar
     saveButton.addClickListener(click -> {
       // System.out.println(pointsPossField.getValue());
       // System.out.println(pointsEarnField.getValue());
-      double ptsPoss = Double.parseDouble(pointsPossField.getValue());
-      double ptsEarn = Double.parseDouble(pointsEarnField.getValue());
-      school.updateAss(curr_ass,ptsPoss,ptsEarn);
-      dialog.close();
-      ass_grid.setItems(s.getAssForClass(c));
-      //System.out.println("Updated assingment " + curr_ass.getName());
+      if (!pointsPossField.getValue().equals("") && !pointsEarnField.getValue().equals("")) {
+        double ptsPoss = Double.parseDouble(pointsPossField.getValue());
+        double ptsEarn = Double.parseDouble(pointsEarnField.getValue());
+        school.updateAss(curr_ass,ptsPoss,ptsEarn);
+        dialog.close();
+        ass_grid.setItems(s.getAssForClass(c));
+        //System.out.println("Updated assingment " + curr_ass.getName());
+      }
     });
 
     deleteButton.addClickListener(click -> {

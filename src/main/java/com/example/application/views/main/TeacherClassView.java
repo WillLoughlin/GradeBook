@@ -97,6 +97,7 @@ public class TeacherClassView extends VerticalLayout implements HasUrlParameter<
       }
     });
 
+
     ASButton.addClickShortcut(Key.ENTER);
 
     VerticalLayout left = new VerticalLayout(student_grid_title,student_grid,textFieldStudent,new HorizontalLayout(ASButton,RSButton));
@@ -116,6 +117,22 @@ public class TeacherClassView extends VerticalLayout implements HasUrlParameter<
       if(optionalAss.isPresent()) {
         //System.out.println(optionalStu.get().getUsername());
         UI.getCurrent().navigate("teacher-class-assignment/" + this.teacher_username+"-"+this.class_name+"-"+optionalAss.get().getName());
+      }
+    });
+
+    RSButton.addClickListener(click -> {
+      String u = textFieldStudent.getValue();
+      if (!u.equals("")) {
+        Student s = school.getStudentWithUsername(u);
+        if (s != null) {
+          // school.addStudentToClass(c,s);
+          school.removeStudentFromClass(s,c);
+          student_grid.setItems(c.getStudents());
+          ass_grid.setItems(school.getTotalAssFromClass(c));
+          notify("Student " + u + " removed from " + class_name);
+        } else {
+          notify("Username " + u + " not found in student database.");
+        }
       }
     });
 

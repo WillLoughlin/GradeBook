@@ -129,6 +129,18 @@ class School {
       }
       save();
     }
+    public void removeStudentFromClass(Student s, Class c) {
+      c.removeStudent(s);
+      s.removeClass(c);
+      s.removeClassAss(c);//remove assignments from student
+      for (int i = 0; i < assignments.size(); i++) {
+        if (assignments.get(i).getAclass() == c && assignments.get(i).getStudent() == s) {
+          assignments.remove(assignments.get(i));
+          i-=1;
+        }
+      }
+      save();
+    }
     public ArrayList<Assignment> getTotalAssFromClass(Class c) {
       ArrayList<Assignment> toRet = new ArrayList<Assignment>();
       ArrayList<Assignment> ass = c.getAssignments();

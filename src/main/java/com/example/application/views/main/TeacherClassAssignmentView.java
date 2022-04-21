@@ -94,6 +94,7 @@ public class TeacherClassAssignmentView extends VerticalLayout implements HasUrl
     Button cancelButton = new Button("Cancel");
     Button saveButton = new Button("Save");
     saveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+    saveButton.addClickShortcut(Key.ENTER);
     Button deleteButton = new Button("Delete");
     deleteButton.addThemeVariants(ButtonVariant.LUMO_ERROR);
 
@@ -102,11 +103,13 @@ public class TeacherClassAssignmentView extends VerticalLayout implements HasUrl
     saveButton.addClickListener(click -> {
       // System.out.println(pointsPossField.getValue());
       // System.out.println(pointsEarnField.getValue());
-      double ptsPoss = Double.parseDouble(pointsPossField.getValue());
-      double ptsEarn = Double.parseDouble(pointsEarnField.getValue());
-      school.updateAss(curr_ass,ptsPoss,ptsEarn);
-      dialog.close();
-      ass_grid.setItems(c.getAssWithName(ass_name));
+      if (!pointsPossField.getValue().equals("") && !pointsEarnField.getValue().equals("")) {
+        double ptsPoss = Double.parseDouble(pointsPossField.getValue());
+        double ptsEarn = Double.parseDouble(pointsEarnField.getValue());
+        school.updateAss(curr_ass,ptsPoss,ptsEarn);
+        dialog.close();
+        ass_grid.setItems(c.getAssWithName(ass_name));
+      }
     });
 
     cancelButton.addClickListener(click -> {
