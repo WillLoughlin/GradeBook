@@ -114,6 +114,7 @@ class School {
     public void updateAss(Assignment a,double poss, double earn) {
       a.setPointsPoss(poss);
       a.setPointsEarn(earn);
+      //System.out.println("A: " + a.getName() + ", Poss: " + a.getPointsPoss() + ", Earn: " + a.getPointsEarn());
       save();
     }
     public void addAssToClass(String ass_name, double ptsPoss, Class c) {

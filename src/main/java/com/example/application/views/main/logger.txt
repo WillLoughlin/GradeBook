@@ -81,3 +81,30 @@ Create Student: Ben Potts added to student list.
 Add Student to Class: Theo Agustin added to Class: MATH 1000
 Add Student to Class: Henry Fontaine added to Class: MATH 1000
 Add Student to Class: Ben Potts added to Class: MATH 1000
+Create Class: PHYS 2230 added to class list. 
+Set Teacher to Class: Nate Poulter set as teacher to Class: PHYS 2230
+Add Student to Class: Ben Potts added to Class: PHYS 2230
+Add Student to Class: Benan Ersek added to Class: PHYS 2230
+Add Student to Class: Ren Lubchenco added to Class: PHYS 2230
+Add Student to Class: Ollie Roux added to Class: PHYS 2230
+Create Class: BIO 1111 added to class list. 
+Set Teacher to Class: Nate Poulter set as teacher to Class: BIO 1111
+Add Student to Class: Sophia Chaltas added to Class: BIO 1111
+Add Student to Class: Bo Dodge added to Class: BIO 1111
+Add Student to Class: Theo Agustin added to Class: BIO 1111
+Add Student to Class: Van Lucas added to Class: BIO 1111
+Add Student to Class: Charlie Gruber added to Class: BIO 1111
+Create Class: PHYS 4000 added to class list. 
+Set Teacher to Class: Tad Boyle set as teacher to Class: PHYS 4000
+Add Student to Class: Henry Fontaine added to Class: PHYS 4000
+Add Student to Class: Van Lucas added to Class: PHYS 4000
+Add Student to Class: Ethan Kupperman added to Class: PHYS 4000
+Create Class: CHEM 5012 added to class list. 
+Set Teacher to Class: Tad Boyle set as teacher to Class: CHEM 5012
+Add Student to Class: Theo Agustin added to Class: CHEM 5012
+Add Student to Class: Ethan Kupperman added to Class: CHEM 5012
+Add Student to Class: Ren Lubchenco added to Class: CHEM 5012
+Add Student to Class: Sophia Chaltas added to Class: CHEM 5012
+Add Student to Class: Will Loughlin added to Class: PHYS 2230
+Add Student to Class: Will Loughlin added to Class: BIO 1111
+Add Student to Class: Will Loughlin added to Class: CHEM 5012

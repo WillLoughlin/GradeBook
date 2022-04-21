@@ -97,6 +97,8 @@ public class TeacherClassView extends VerticalLayout implements HasUrlParameter<
       }
     });
 
+    ASButton.addClickShortcut(Key.ENTER);
+
     VerticalLayout left = new VerticalLayout(student_grid_title,student_grid,textFieldStudent,new HorizontalLayout(ASButton,RSButton));
 
 

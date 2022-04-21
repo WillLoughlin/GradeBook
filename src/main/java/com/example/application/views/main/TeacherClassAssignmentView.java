@@ -124,6 +124,7 @@ public class TeacherClassAssignmentView extends VerticalLayout implements HasUrl
       if(optionalAss.isPresent()) {
         dialog.open();
         curr_ass = optionalAss.get();
+        pointsPossField.setValue(String.valueOf(curr_ass.getPointsPoss()));
         //System.out.println(optionalAss.get().getUsername());
         //UI.getCurrent().navigate("teacher-class-student/" + this.teacher_username+"-"+this.class_name+"-"+optionalStu.get().getUsername());
       }

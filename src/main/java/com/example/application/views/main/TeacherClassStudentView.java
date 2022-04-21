@@ -113,13 +113,12 @@ public class TeacherClassStudentView extends VerticalLayout implements HasUrlPar
     saveButton.addClickListener(click -> {
       // System.out.println(pointsPossField.getValue());
       // System.out.println(pointsEarnField.getValue());
-      pointsPossField.setValue(String.valueOf(curr_ass.getPointsPoss()));
-      pointsEarnField.setValue(String.valueOf(curr_ass.getPointsEarn()));
       double ptsPoss = Double.parseDouble(pointsPossField.getValue());
       double ptsEarn = Double.parseDouble(pointsEarnField.getValue());
       school.updateAss(curr_ass,ptsPoss,ptsEarn);
       dialog.close();
       ass_grid.setItems(s.getAssForClass(c));
+      //System.out.println("Updated assingment " + curr_ass.getName());
     });
 
     deleteButton.addClickListener(click -> {
@@ -137,6 +136,8 @@ public class TeacherClassStudentView extends VerticalLayout implements HasUrlPar
       if(optionalAss.isPresent()) {
         dialog.open();
         curr_ass = optionalAss.get();
+        pointsPossField.setValue(String.valueOf(curr_ass.getPointsPoss()));
+        pointsEarnField.setValue(String.valueOf(curr_ass.getPointsEarn()));
         //System.out.println(optionalAss.get().getUsername());
         //UI.getCurrent().navigate("teacher-class-student/" + this.teacher_username+"-"+this.class_name+"-"+optionalStu.get().getUsername());
       }

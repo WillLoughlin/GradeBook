@@ -1,2 +1,6 @@
 name,class_id,Teacher,Student,Student,...
 MATH 1000,0,Nate Poulter,Will Loughlin,Sophia Chaltas,Ren Lubchenco,Bo Dodge,Charlie Gruber,Ollie Roux,Van Lucas,Ethan Kupperman,Benan Ersek,Theo Agustin,Henry Fontaine,Ben Potts
+PHYS 2230,1,Nate Poulter,Ben Potts,Benan Ersek,Ren Lubchenco,Ollie Roux,Will Loughlin
+BIO 1111,2,Nate Poulter,Sophia Chaltas,Bo Dodge,Theo Agustin,Van Lucas,Charlie Gruber,Will Loughlin
+PHYS 4000,3,Tad Boyle,Henry Fontaine,Van Lucas,Ethan Kupperman
+CHEM 5012,4,Tad Boyle,Theo Agustin,Ethan Kupperman,Ren Lubchenco,Sophia Chaltas,Will Loughlin
