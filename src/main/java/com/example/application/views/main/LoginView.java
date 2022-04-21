@@ -20,6 +20,7 @@ import com.vaadin.flow.component.notification.Notification.Position;
 import com.vaadin.flow.component.page.Page;
 
 
+
 @Route("")
 @PageTitle("GradeBook Login")
 
@@ -31,6 +32,7 @@ public class LoginView extends VerticalLayout {
     setSizeFull();
 
     setAlignItems(Alignment.CENTER);
+    //setComponentAlignment(myLayout, Alignment.TOP_CENTER);
 
 
     //login.setAction("login");
@@ -67,6 +69,8 @@ public class LoginView extends VerticalLayout {
       }
 
     });
+    login.addClickShortcut(Key.ENTER);
+
     Button registerTeacher = new Button("Register Teacher");
     registerTeacher.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
     registerTeacher.addThemeVariants(ButtonVariant.LUMO_SMALL);
@@ -131,7 +135,6 @@ public class LoginView extends VerticalLayout {
         }
 
     });
-
 
     add(
       new H1("GradeBook"),

@@ -8,6 +8,7 @@ class Class implements Class_Interface{
     private ArrayList<Student> students;
     private School school;
     private ArrayList<Assignment> assignments;
+    private Student cur_student;
 
     public Class(int id, String name, School school) {
         this.id = id;
@@ -25,6 +26,12 @@ class Class implements Class_Interface{
         return name;
     }
     public void setTeacher(Teacher t) {
+      // if (t != null) {
+      //   ArrayList<Class> cs = t.getClasses();
+      //   if (!cs.contains(this)) {
+      //     t.addClass(this);
+      //   }
+      // }
       teacher = t;
     }
     public Teacher getTeacher() {
@@ -32,6 +39,9 @@ class Class implements Class_Interface{
     }
     public ArrayList<Student> getStudents(){
       return students;
+    }
+    public int getNumStudents() {
+      return students.size();
     }
     //---end of getters and setters---\\
     public void addStudent(Student s) {
@@ -43,7 +53,40 @@ class Class implements Class_Interface{
     public void addAssignment(Assignment a) {
       assignments.add(a);
     }
+    public void deleteAss(Assignment a) {
+      assignments.remove(a);
+    }
     public ArrayList<Assignment> getAssignments() {
       return assignments;
+    }
+    public void setCurrentStudent(Student s) {
+      this.cur_student = s;
+    }
+    public String getCurrentStudentGrade() {
+      String g = String.valueOf(this.cur_student.getGradeInClass(this) * 100);
+      if (g.length() > 5) {
+        g = g.substring(0,5);
+      }
+      g = g + "%";
+      return g;
+    }
+    public ArrayList<Assignment> getAssWithName(String n) {
+      ArrayList<Assignment> toRet = new ArrayList<Assignment>();
+      for (int i = 0; i < assignments.size(); i++) {
+        if (assignments.get(i).getName().equals(n)) {
+          toRet.add(assignments.get(i));
+        }
+      }
+      return toRet;
+    }
+    public double getClassAvgAss(String n) {
+      ArrayList<Assignment> ass = getAssWithName(n);
+      double totalPoss = 0.0;
+      double totalEarn = 0.0;
+      for (int i = 0; i < ass.size();i++) {
+        totalPoss += ass.get(i).getPointsPoss();
+        totalEarn += ass.get(i).getPointsEarn();
+      }
+      return totalEarn / totalPoss;
     }
 }

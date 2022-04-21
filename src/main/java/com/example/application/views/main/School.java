@@ -111,6 +111,40 @@ class School {
 
       save();
     }
+    public void updateAss(Assignment a,double poss, double earn) {
+      a.setPointsPoss(poss);
+      a.setPointsEarn(earn);
+      save();
+    }
+    public void addAssToClass(String ass_name, double ptsPoss, Class c) {
+      ArrayList<Student> stu = c.getStudents();
+      for (int i = 0; i < stu.size(); i++) {
+        Assignment a = assignment_factory.create(num_ass, ass_name, c, c.getTeacher(), stu.get(i));
+        a.setPointsPoss(ptsPoss);
+        assignments.add(a);
+        stu.get(i).addAssignment(a);
+        c.addAssignment(a);
+        num_ass+=1;
+      }
+      save();
+    }
+    public ArrayList<Assignment> getTotalAssFromClass(Class c) {
+      ArrayList<Assignment> toRet = new ArrayList<Assignment>();
+      ArrayList<Assignment> ass = c.getAssignments();
+      for (int i = 0; i < ass.size(); i++) {
+        String n = ass.get(i).getName();
+        boolean add = true;
+        for (int j = 0; j < toRet.size(); j++) {
+          if (toRet.get(j).getName().equals(n)) {
+            add = false;
+          }
+        }
+        if (add){
+          toRet.add(ass.get(i));
+        }
+      }
+      return toRet;
+    }
     public void removeStudentFromClass(Class c, Student s) {
       c.removeStudent(s);
       s.removeClass(c);
@@ -144,6 +178,14 @@ class School {
       }
       return null;
     }
+    public Teacher getTeacherWithUsername(String u) {
+      for (int i = 0; i < teachers.size(); i++) {
+        if (teachers.get(i).getUsername().equals(u)){
+          return teachers.get(i);
+        }
+      }
+      return null;
+    }
     public void removeClass(Class c) {
       classes.remove(c);
     }
@@ -155,6 +197,7 @@ class School {
     }
     public void setTeacherToClass(Class c, Teacher t) {
       c.setTeacher(t);
+      t.addClass(c);
 
       logger_data.clear();
       logger_data.add(c.getName());
@@ -163,6 +206,14 @@ class School {
       logger_data.clear();
 
       save();
+    }
+    public boolean validClassName(String n) {
+      for (int i = 0; i < classes.size(); i++) {
+        if (classes.get(i).getName().equals(n)) {
+          return false;
+        }
+      }
+      return true;
     }
     public Teacher getTeacherWithName(String n) {
       for (int i = 0; i < teachers.size(); i++) {
@@ -189,6 +240,21 @@ class School {
       }
       return null;
     }
+    public ArrayList<Assignment> getAssignmentsStudentClass(String sname, String cname) {
+      // System.out.println("Checking assignments");
+      // System.out.println("Comparing against: " + sname + ", " + cname);
+      ArrayList<Assignment> ass = new ArrayList<Assignment>();
+      for (int i = 0; i < assignments.size(); i++) {
+        // System.out.println("Name: " + assignments.get(i).getAclass().getName());
+        // System.out.println("Student: " + assignments.get(i).getStudent().getName());
+        // System.out.println("");
+
+        if (assignments.get(i).getAclass().getName().equals(cname) && assignments.get(i).getStudent().getUsername().equals(sname)) {
+          ass.add(assignments.get(i));
+        }
+      }
+      return ass;
+    }
     public boolean checkValidRegister(String n) {
       for (int i = 0; i < students.size(); i++) {
         if (students.get(i).getUsername().equals(n)){
@@ -202,8 +268,28 @@ class School {
       }
       return true;
     }
+    public void deleteAss(Assignment a) {
+      Student s = a.getStudent();
+      Class c = a.getAclass();
+      s.deleteAss(a);
+      c.deleteAss(a);
+      assignments.remove(a);
+      num_ass -=1;
+      save();
+    }
     public void addAssignment(String name,Class c,Teacher teacher,Student student) {
       Assignment a = assignment_factory.create(num_ass, name, c, teacher, student);
+      num_ass +=1;
+      assignments.add(a);
+      c.addAssignment(a);
+      teacher.addAssignment(a);
+      student.addAssignment(a);
+      save();
+    }
+    public void addAssignmentPts(String name,Class c,Teacher teacher,Student student, double ptsPoss, double ptsEarn) {
+      Assignment a = assignment_factory.create(num_ass, name, c, teacher, student);
+      a.setPointsEarn(ptsEarn);
+      a.setPointsPoss(ptsPoss);
       num_ass +=1;
       assignments.add(a);
       c.addAssignment(a);
@@ -352,6 +438,9 @@ class School {
       Teacher setT = getTeacherWithName(teacherName);
       new_class.setTeacher(setT);
       classes.add(new_class);
+      if (setT != null) {
+        setT.addClass(new_class);
+      }
       if (split_data.length > 3) {
         for (int i = 3; i < split_data.length; i++){
           Student addS = getStudentWithName(split_data[i]);

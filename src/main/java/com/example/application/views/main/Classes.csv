@@ -1,8 +1,2 @@
 name,class_id,Teacher,Student,Student,...
-Math 2240,0,Bingo Bongo,Will Loughlin
-PHYS 1243,1,,Bob Ross
-CHEM 3400,2,
-CSCI 3434,3,Jed Brown,Sophia Chaltas,Bob Ross,Stevie Wonder
-test,4,
-Test Class 2,5,
-Physics,6,Bingo Bongo,Will Loughlin,Sophia Chaltas
+MATH 1000,0,Nate Poulter,Will Loughlin,Sophia Chaltas,Ren Lubchenco,Bo Dodge,Charlie Gruber,Ollie Roux,Van Lucas,Ethan Kupperman,Benan Ersek,Theo Agustin,Henry Fontaine,Ben Potts

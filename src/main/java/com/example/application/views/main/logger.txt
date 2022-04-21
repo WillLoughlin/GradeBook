@@ -29,3 +29,55 @@ Create Teacher: Ben_Franklin added to teacher list.
 Create Teacher: Steve_B added to teacher list. 
 Create Teacher: Mike added to teacher list. 
 Create Student: Bill_Burr added to student list. 
+Create Class: CALC 2 added to class list. 
+Create Class: PHYS 6700 added to class list. 
+Create Class: Test Class added to class list. 
+Create Class: Test Class 2 added to class list. 
+Create Class: New Test Class added to class list. 
+Set Teacher to Class: Jed Brown set as teacher to Class: New Test Class
+Create Class: Numerical Computation added to class list. 
+Set Teacher to Class: Jed Brown set as teacher to Class: Numerical Computation
+Create Student: New_Student added to student list. 
+Add Student to Class: New_Student added to Class: CSCI 3434
+Create Class: New Class 2 added to class list. 
+Set Teacher to Class: Jed Brown set as teacher to Class: New Class 2
+Add Student to Class: Will Loughlin added to Class: New Class 2
+Add Student to Class: Sophia Chaltas added to Class: New Class 2
+Create Teacher: NewTeacher added to teacher list. 
+Create Class: WRTG 2375 added to class list. 
+Set Teacher to Class: NewTeacher set as teacher to Class: WRTG 2375
+Add Student to Class: Will Loughlin added to Class: WRTG 2375
+Add Student to Class: Sophia Chaltas added to Class: WRTG 2375
+Add Student to Class: Stevie Wonder added to Class: WRTG 2375
+Add Student to Class: Bob Ross added to Class: WRTG 2375
+Add Student to Class: Jane Doe added to Class: WRTG 2375
+Create Student: Will Loughlin added to student list. 
+Create Student: Sophia Chaltas added to student list. 
+Create Student: Ren Lubchenco added to student list. 
+Create Student: Bo Dodge added to student list. 
+Create Student: Charlie Gruber added to student list. 
+Create Student: Ollie Roux added to student list. 
+Create Student: Van Lucas added to student list. 
+Create Student: Ethan Kupperman added to student list. 
+Create Teacher: Nate Poulter added to teacher list. 
+Create Teacher: Reid Schneck added to teacher list. 
+Create Teacher: Tad Boyle added to teacher list. 
+Create Student: Benan Ersek added to student list. 
+Create Class: MATH 1000 added to class list. 
+Set Teacher to Class: Nate Poulter set as teacher to Class: MATH 1000
+Add Student to Class: Will Loughlin added to Class: MATH 1000
+Add Student to Class: Sophia Chaltas added to Class: MATH 1000
+Add Student to Class: Ren Lubchenco added to Class: MATH 1000
+Add Student to Class: Bo Dodge added to Class: MATH 1000
+Add Student to Class: Charlie Gruber added to Class: MATH 1000
+Add Student to Class: Ollie Roux added to Class: MATH 1000
+Add Student to Class: Van Lucas added to Class: MATH 1000
+Add Student to Class: Ethan Kupperman added to Class: MATH 1000
+Add Student to Class: Benan Ersek added to Class: MATH 1000
+Create Student: Steve Englehard added to student list. 
+Create Student: Theo Agustin added to student list. 
+Create Student: Henry Fontaine added to student list. 
+Create Student: Ben Potts added to student list. 
+Add Student to Class: Theo Agustin added to Class: MATH 1000
+Add Student to Class: Henry Fontaine added to Class: MATH 1000
+Add Student to Class: Ben Potts added to Class: MATH 1000

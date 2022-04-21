@@ -44,6 +44,8 @@ public class StudentView extends VerticalLayout implements HasUrlParameter<Strin
   }
 
   public void buildView() {
+    setAlignItems(Alignment.CENTER);
+
     School school = new School("school");
     //System.out.println("Looking for self with username: " + this.username);
     Student self = school.getStudentWithUsername(this.username);
@@ -53,11 +55,15 @@ public class StudentView extends VerticalLayout implements HasUrlParameter<Strin
      Span gridTitle = new Span("Select a Class");
      gridTitle.getStyle().set("font-weight", "bold");
 
+    for (int i = 0; i < self.getClasses().size(); i++) {
+      self.getClasses().get(i).setCurrentStudent(self);
+    }
     Grid<Class> grid = new Grid<>(Class.class, false);
     grid.addColumn(Class::getName).setHeader("Class Name");
-    grid.addColumn(Class::getId).setHeader("ID");
+    grid.addColumn(Class::getCurrentStudentGrade).setHeader("ID");
 
     grid.setItems(self.getClasses());
+    grid.setWidth("400px");
     //grid.setWidth("40%");
     //grid.setHeight("40%");
 
@@ -69,10 +75,16 @@ public class StudentView extends VerticalLayout implements HasUrlParameter<Strin
       }
     });
 
+    Button back = new Button("Log Out");
+    back.addClickListener(click -> {
+      UI.getCurrent().navigate("");
+    });
+
     add(
       new H1("Student Portal"),
       gridTitle,
-      grid
+      new HorizontalLayout(grid),
+      back
     );
   }
 }

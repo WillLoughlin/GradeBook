@@ -62,6 +62,28 @@ class Assignment {
     public Student getStudent() {
       return this.student;
     }
+    public String getGradeStr() {
+      if (pointsPossible != 0) {
+        String toRet = ((pointsEarned / pointsPossible) *100) + "%";
+        if (toRet.length() > 6) {
+          toRet = toRet.substring(0,5);
+          toRet = toRet + "%";
+        }
+        return toRet;
+      }
+      return "0.0%";
+    }
+    public String getStudentName() {
+      return student.getName();
+    }
+    public String getClassAvg() {
+      String s = String.valueOf(Aclass.getClassAvgAss(name) * 100);
+      if (s.length() > 5) {
+        s = s.substring(0,5);
+      }
+      s = s + "%";
+      return s;
+    }
     //---end of getters and setters---\\
 
 }
