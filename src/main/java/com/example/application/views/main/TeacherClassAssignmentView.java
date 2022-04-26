@@ -107,6 +107,7 @@ public class TeacherClassAssignmentView extends VerticalLayout implements HasUrl
         double ptsPoss = Double.parseDouble(pointsPossField.getValue());
         double ptsEarn = Double.parseDouble(pointsEarnField.getValue());
         school.updateAss(curr_ass,ptsPoss,ptsEarn);
+        curr_ass.setGraded(true);
         dialog.close();
         ass_grid.setItems(c.getAssWithName(ass_name));
       }

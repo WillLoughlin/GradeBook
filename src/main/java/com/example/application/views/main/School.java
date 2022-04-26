@@ -139,6 +139,11 @@ class School {
           i-=1;
         }
       }
+      logger_data.clear();
+      logger_data.add(c.getName());
+      logger_data.add(s.getName());
+      logger.update("removeStudentFromClass",logger_data);
+      logger_data.clear();
       save();
     }
     public ArrayList<Assignment> getTotalAssFromClass(Class c) {
@@ -158,18 +163,18 @@ class School {
       }
       return toRet;
     }
-    public void removeStudentFromClass(Class c, Student s) {
-      c.removeStudent(s);
-      s.removeClass(c);
-
-      logger_data.clear();
-      logger_data.add(c.getName());
-      logger_data.add(s.getName());
-      logger.update("removeStudentFromClass",logger_data);
-      logger_data.clear();
-
-      save();
-    }
+    // public void removeStudentFromClass(Class c, Student s) {
+    //   c.removeStudent(s);
+    //   s.removeClass(c);
+    //
+    //   logger_data.clear();
+    //   logger_data.add(c.getName());
+    //   logger_data.add(s.getName());
+    //   logger.update("removeStudentFromClass",logger_data);
+    //   logger_data.clear();
+    //
+    //   save();
+    // }
     public String checkUser(String u, String p) {
       for (int i = 0; i < students.size(); i++) {
         if (u.equals(students.get(i).getUsername()) && p.equals(students.get(i).getPassword())) {
@@ -191,6 +196,15 @@ class School {
       }
       return null;
     }
+    public boolean isClassName(String n, Teacher t) {
+      ArrayList<Class> c = t.getClasses();
+      for (int i = 0 ; i < c.size(); i++) {
+        if(c.get(i).getName().equals(n)) {
+          return true;
+        }
+      }
+      return false;
+    }
     public Teacher getTeacherWithUsername(String u) {
       for (int i = 0; i < teachers.size(); i++) {
         if (teachers.get(i).getUsername().equals(u)){
@@ -199,12 +213,33 @@ class School {
       }
       return null;
     }
-    public void removeClass(Class c) {
+    // public void removeClass(Class c) {
+    //   classes.remove(c);
+    // }
+    public void clearClassAss(Class c) {
+      for (int i = 0; i < assignments.size(); i++) {
+        if (assignments.get(i).getAclass() == c) {
+          assignments.remove(assignments.get(i));
+          i -= 1;
+        }
+      }
+      c.clearAss();
+    }
+    public void removeClassWithName(String n) {
+      Class c = getClassWithName(n);
+      clearClassAss(c);
+      ArrayList<Student> stu = c.getStudents();
+      for (int i = 0; i < stu.size(); i++) {
+        removeStudentFromClass(stu.get(i),c);
+      }
       classes.remove(c);
+      c.getTeacher().removeClass(c);
+      save();
+
     }
-    public void removeClassWithName(String name) {
-      removeClass(getClassWithName(name));
-    }
+    // public void removeClassWithName(String name) {
+    //   removeClass(getClassWithName(name));
+    // }
     public ArrayList<Student> getStudentsInClass(Class c) {
       return c.getStudents();
     }

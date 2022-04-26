@@ -102,6 +102,24 @@ public class TeacherView extends VerticalLayout implements HasUrlParameter<Strin
      }
    });
 
+   removeButtonClass.addClickListener(click -> {
+     String className = taskFieldClass.getValue();
+     if (!className.equals("")) {
+       if (school.isClassName(className,self)) {
+         // school.addClass(className);
+         // Class added = school.getClassWithName(className);
+         // school.setTeacherToClass(added,self);
+         // school.save();
+         // grid.getDataProvider().refreshAll();
+         school.removeClassWithName(className);
+         grid.setItems(self.getClasses());
+         notify(className + " removed from classes for " + self.getName());
+       } else {
+         notify(className + " not found in database");
+       }
+     }
+   });
+
    Button back = new Button("Log Out");
    back.addClickListener(click -> {
      UI.getCurrent().navigate("");

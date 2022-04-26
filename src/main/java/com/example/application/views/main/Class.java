@@ -62,6 +62,9 @@ class Class implements Class_Interface{
     public void setCurrentStudent(Student s) {
       this.cur_student = s;
     }
+    public void clearAss() {
+      assignments = new ArrayList<Assignment>();
+    }
     public String getCurrentStudentGrade() {
       String g = String.valueOf(this.cur_student.getGradeInClass(this) * 100);
       if (g.length() > 5) {
