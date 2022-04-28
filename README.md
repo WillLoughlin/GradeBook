@@ -16,3 +16,5 @@ OOAD Patterns (all files found at src/main/java/com/example/application/views/ma
 - Factory: Assignment_Factory.java  
 
 PDFs for projects 5, 6, and 7 are included in this repository.
+
+The video was too big to upload to Github directly, so here is the link to the YouTube video: https://youtu.be/bsdjPRssdMA
