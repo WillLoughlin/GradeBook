@@ -2,6 +2,7 @@ name,user_id,username,password,Teacher or Student
 Nate Poulter,0,Nate Poulter,password,Teacher
 Reid Schneck,1,Reid Schneck,password,Teacher
 Tad Boyle,2,Tad Boyle,password,Teacher
+Steveee,3,Steveee,password,Teacher
 Will Loughlin,0,Will Loughlin,password,Student
 Sophia Chaltas,1,Sophia Chaltas,password,Student
 Ren Lubchenco,2,Ren Lubchenco,password,Student
@@ -16,3 +17,4 @@ Theo Agustin,10,Theo Agustin,password,Student
 Henry Fontaine,11,Henry Fontaine,password,Student
 Ben Potts,12,Ben Potts,password,Student
 Stevie Wonder,13,Stevie Wonder,password,Student
+Ricky Bobby,14,Ricky Bobby,password,Student

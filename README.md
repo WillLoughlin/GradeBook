@@ -15,4 +15,4 @@ OOAD Patterns (all files found at src/main/java/com/example/application/views/ma
 - Observer: Class.java, Student.java
 - Factory: Assignment_Factory.java  
 
-PDFs for projects 5 and 6 are included in this repository.
+PDFs for projects 5, 6, and 7 are included in this repository.

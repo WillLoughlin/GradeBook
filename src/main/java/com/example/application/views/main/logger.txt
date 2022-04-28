@@ -131,3 +131,21 @@ Add Student to Class: Benan Ersek added to Class: Test Class
 Add Student to Class: Ren Lubchenco added to Class: Test Class
 Remove Student from Class: Will Loughlin removed from Class: Test Class
 Remove Student from Class: Ren Lubchenco removed from Class: Test Class
+Add Student to Class: Will Loughlin added to Class: MATH 1000
+Remove Student from Class: Will Loughlin removed from Class: MATH 1000
+Create Class: Test Class added to class list. 
+Set Teacher to Class: Nate Poulter set as teacher to Class: Test Class
+Add Student to Class: Will Loughlin added to Class: Test Class
+Add Student to Class: Sophia Chaltas added to Class: Test Class
+Remove Student from Class: Will Loughlin removed from Class: Test Class
+Create Class: Test Class added to class list. 
+Set Teacher to Class: Nate Poulter set as teacher to Class: Test Class
+Add Student to Class: Will Loughlin added to Class: MATH 1000
+Remove Student from Class: Will Loughlin removed from Class: MATH 1000
+Add Student to Class: Will Loughlin added to Class: MATH 1000
+Create Class: New Class 1 added to class list. 
+Set Teacher to Class: Nate Poulter set as teacher to Class: New Class 1
+Add Student to Class: Sophia Chaltas added to Class: New Class 1
+Add Student to Class: Will Loughlin added to Class: New Class 1
+Create Student: Ricky Bobby added to student list. 
+Create Teacher: Steveee added to teacher list. 
