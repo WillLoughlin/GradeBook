@@ -100,6 +100,11 @@ public class TeacherClassStudentView extends VerticalLayout implements HasUrlPar
     dialog.add(new H3("Edit Grade"));
     dialog.add(dialogLayout);
 
+    c.setCurrentStudent(s);
+    String grade = c.getCurrentStudentGrade();
+    Span grade_title = new Span("Total: " + grade);
+    grade_title.getStyle().set("font-weight", "bold");
+
     Button cancelButton = new Button("Cancel");
     Button saveButton = new Button("Save");
     saveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
@@ -122,6 +127,7 @@ public class TeacherClassStudentView extends VerticalLayout implements HasUrlPar
         dialog.close();
         ass_grid.setItems(s.getAssForClass(c));
         //System.out.println("Updated assingment " + curr_ass.getName());
+        grade_title.setText("Total: " + c.getCurrentStudentGrade());
       }
     });
 
@@ -196,9 +202,11 @@ public class TeacherClassStudentView extends VerticalLayout implements HasUrlPar
     });
 
 
+
     add(
       new H1("Teacher Portal: " + this.class_name + ", " + this.student_username),
       grid_title,
+      grade_title,
       new HorizontalLayout(ass_grid),
       add_ass,
       back

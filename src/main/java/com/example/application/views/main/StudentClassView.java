@@ -49,6 +49,7 @@ public class StudentClassView extends VerticalLayout implements HasUrlParameter<
     setAlignItems(Alignment.CENTER);
     School school = new School("school");
     Student self = school.getStudentWithUsername(student_name);
+    Class c = school.getClassWithName(class_name);
     ArrayList<Assignment> assignments = school.getAssignmentsStudentClass(this.student_name, this.class_name);
 
     Grid<Assignment> grid = new Grid<>(Assignment.class, false);
@@ -69,10 +70,16 @@ public class StudentClassView extends VerticalLayout implements HasUrlParameter<
     Span gridTitle = new Span("Grades for " + self.getName() + " in " + class_name);
     gridTitle.getStyle().set("font-weight", "bold");
 
+    c.setCurrentStudent(self);
+    String grade = c.getCurrentStudentGrade();
+    Span grade_title = new Span("Total: " + grade);
+    grade_title.getStyle().set("font-weight", "bold");
+
 
     add(
       new H1("Student Portal: " + this.class_name),
       gridTitle,
+      grade_title,
       new HorizontalLayout(grid),
       back
     );

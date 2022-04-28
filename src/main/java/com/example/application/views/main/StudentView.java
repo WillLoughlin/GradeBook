@@ -60,7 +60,7 @@ public class StudentView extends VerticalLayout implements HasUrlParameter<Strin
     }
     Grid<Class> grid = new Grid<>(Class.class, false);
     grid.addColumn(Class::getName).setHeader("Class Name");
-    grid.addColumn(Class::getCurrentStudentGrade).setHeader("ID");
+    grid.addColumn(Class::getCurrentStudentGrade).setHeader("Grade");
 
     grid.setItems(self.getClasses());
     grid.setWidth("400px");
